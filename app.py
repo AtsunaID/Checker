@@ -11,7 +11,7 @@ def check_account():
         return jsonify({"error": "Username is required"}), 400
 
     try:
-        profile = loader.check_profile_id(username)
+        profile = loader.get_profile_from_username(username)
         return jsonify({
             "username": username,
             "status": "live"
@@ -26,5 +26,4 @@ def check_account():
             "error": str(e)
         }), 500
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
